@@ -17,7 +17,9 @@ module.exports = {
         ],
         vendor: [
             'babel-polyfill',
-            "react",
+            'whatwg-fetch',
+            'promise-polyfill',
+            'react',
             'react-dom',
             'react-router',
             'redux',
@@ -46,18 +48,9 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /^node_modules$/,
-                 loaders: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                }),
-                include: [APP_PATH]
-            },
-            {
-                test: /\.scss$/,
-                exclude: /^node_modules$/,
                 loaders: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]!sass-loader'
+                    use: 'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]'
                 }),
              
                 include: [APP_PATH]

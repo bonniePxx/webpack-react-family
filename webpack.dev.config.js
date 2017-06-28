@@ -12,7 +12,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, "./build"); //发布文件所存放的�
 module.exports = {
     entry: {
         app: ['webpack-dev-server/client?http://localhost:8088',
-            'webpack/hot/only-dev-server', 'babel-polyfill', APP_FILE
+            'webpack/hot/only-dev-server','babel-polyfill','whatwg-fetch','promise-polyfill', APP_FILE
         ]
     },
     output: {
@@ -37,16 +37,7 @@ module.exports = {
                 exclude: /^node_modules$/,
                 loaders: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader'
-                }),
-                include: [APP_PATH]
-            },
-            {
-                test: /\.scss$/,
-                exclude: /^node_modules$/,
-                loaders: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]!sass-loader'
+                    use: 'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]'
                 }),
                 include: [APP_PATH]
             },

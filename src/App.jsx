@@ -1,19 +1,14 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-
-// // 引入全局样式
-// import './styles/common/common.css'
-
-import configureStore from "./store";
-import Index from "./containers/Index";
+import React from 'react'
+import { render } from 'react-dom'
+import configureStore from './store/configureStore.js'
+import { Provider } from 'react-redux'
+import BasicExample from './routes'
 
 const store = configureStore();
 
-
 render(
   <Provider store={store}>
-    <Index/>
+    <BasicExample />
   </Provider>,
-  document.getElementById("root")
-);
+  document.getElementById('root'))
+
